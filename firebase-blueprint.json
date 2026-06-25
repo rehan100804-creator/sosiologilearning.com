@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "Student": {
+      "title": "Student",
+      "description": "Student lesson progress and quiz results",
+      "type": "object",
+      "properties": {
+        "nim": { "type": "string", "description": "Student NIM (Nomor Induk Mahasiswa)" },
+        "name": { "type": "string", "description": "Full name" },
+        "score": { "type": "integer", "description": "Quiz score" },
+        "correctCount": { "type": "integer" },
+        "incorrectCount": { "type": "integer" },
+        "watchedVideo": { "type": "boolean" },
+        "readModule": { "type": "boolean" },
+        "viewedSources": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["nim", "name"]
+    }
+  },
+  "firestore": {
+    "students/{studentId}": {
+      "schema": "Student",
+      "description": "Firestore collection for storing student course progress and quiz score matching their NIM"
+    }
+  }
+}
